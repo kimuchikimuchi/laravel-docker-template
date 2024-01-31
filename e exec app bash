@@ -1,0 +1,134 @@
+warning: in the working copy of 'src/database/seeds/DatabaseSeeder.php', LF will be replaced by CRLF the next time Git touches it
+[1mdiff --git a/src/database/migrations/2014_10_12_000000_create_users_table.php b/src/database/migrations/2014_10_12_000000_create_users_table.php[m
+[1mdeleted file mode 100644[m
+[1mindex a91e1d3..0000000[m
+[1m--- a/src/database/migrations/2014_10_12_000000_create_users_table.php[m
+[1m+++ /dev/null[m
+[36m@@ -1,36 +0,0 @@[m
+[31m-<?php[m
+[31m-[m
+[31m-use Illuminate\Database\Migrations\Migration;[m
+[31m-use Illuminate\Database\Schema\Blueprint;[m
+[31m-use Illuminate\Support\Facades\Schema;[m
+[31m-[m
+[31m-class CreateUsersTable extends Migration[m
+[31m-{[m
+[31m-    /**[m
+[31m-     * Run the migrations.[m
+[31m-     *[m
+[31m-     * @return void[m
+[31m-     */[m
+[31m-    public function up()[m
+[31m-    {[m
+[31m-        Schema::create('users', function (Blueprint $table) {[m
+[31m-            $table->bigIncrements('id');[m
+[31m-            $table->string('name');[m
+[31m-            $table->string('email')->unique();[m
+[31m-            $table->timestamp('email_verified_at')->nullable();[m
+[31m-            $table->string('password');[m
+[31m-            $table->rememberToken();[m
+[31m-            $table->timestamps();[m
+[31m-        });[m
+[31m-    }[m
+[31m-[m
+[31m-    /**[m
+[31m-     * Reverse the migrations.[m
+[31m-     *[m
+[31m-     * @return void[m
+[31m-     */[m
+[31m-    public function down()[m
+[31m-    {[m
+[31m-        Schema::dropIfExists('users');[m
+[31m-    }[m
+[31m-}[m
+[1mdiff --git a/src/database/migrations/2014_10_12_100000_create_password_resets_table.php b/src/database/migrations/2014_10_12_100000_create_password_resets_table.php[m
+[1mdeleted file mode 100644[m
+[1mindex 0ee0a36..0000000[m
+[1m--- a/src/database/migrations/2014_10_12_100000_create_password_resets_table.php[m
+[1m+++ /dev/null[m
+[36m@@ -1,32 +0,0 @@[m
+[31m-<?php[m
+[31m-[m
+[31m-use Illuminate\Database\Migrations\Migration;[m
+[31m-use Illuminate\Database\Schema\Blueprint;[m
+[31m-use Illuminate\Support\Facades\Schema;[m
+[31m-[m
+[31m-class CreatePasswordResetsTable extends Migration[m
+[31m-{[m
+[31m-    /**[m
+[31m-     * Run the migrations.[m
+[31m-     *[m
+[31m-     * @return void[m
+[31m-     */[m
+[31m-    public function up()[m
+[31m-    {[m
+[31m-        Schema::create('password_resets', function (Blueprint $table) {[m
+[31m-            $table->string('email')->index();[m
+[31m-            $table->string('token');[m
+[31m-            $table->timestamp('created_at')->nullable();[m
+[31m-        });[m
+[31m-    }[m
+[31m-[m
+[31m-    /**[m
+[31m-     * Reverse the migrations.[m
+[31m-     *[m
+[31m-     * @return void[m
+[31m-     */[m
+[31m-    public function down()[m
+[31m-    {[m
+[31m-        Schema::dropIfExists('password_resets');[m
+[31m-    }[m
+[31m-}[m
+[1mdiff --git a/src/database/migrations/2019_08_19_000000_create_failed_jobs_table.php b/src/database/migrations/2019_08_19_000000_create_failed_jobs_table.php[m
+[1mdeleted file mode 100644[m
+[1mindex 389bdf7..0000000[m
+[1m--- a/src/database/migrations/2019_08_19_000000_create_failed_jobs_table.php[m
+[1m+++ /dev/null[m
+[36m@@ -1,35 +0,0 @@[m
+[31m-<?php[m
+[31m-[m
+[31m-use Illuminate\Database\Migrations\Migration;[m
+[31m-use Illuminate\Database\Schema\Blueprint;[m
+[31m-use Illuminate\Support\Facades\Schema;[m
+[31m-[m
+[31m-class CreateFailedJobsTable extends Migration[m
+[31m-{[m
+[31m-    /**[m
+[31m-     * Run the migrations.[m
+[31m-     *[m
+[31m-     * @return void[m
+[31m-     */[m
+[31m-    public function up()[m
+[31m-    {[m
+[31m-        Schema::create('failed_jobs', function (Blueprint $table) {[m
+[31m-            $table->bigIncrements('id');[m
+[31m-            $table->text('connection');[m
+[31m-            $table->text('queue');[m
+[31m-            $table->longText('payload');[m
+[31m-            $table->longText('exception');[m
+[31m-            $table->timestamp('failed_at')->useCurrent();[m
+[31m-        });[m
+[31m-    }[m
+[31m-[m
+[31m-    /**[m
+[31m-     * Reverse the migrations.[m
+[31m-     *[m
+[31m-     * @return void[m
+[31m-     */[m
+[31m-    public function down()[m
+[31m-    {[m
+[31m-        Schema::dropIfExists('failed_jobs');[m
+[31m-    }[m
+[31m-}[m
+[1mdiff --git a/src/database/seeds/DatabaseSeeder.php b/src/database/seeds/DatabaseSeeder.php[m
+[1mindex 91cb6d1..b06ada4 100644[m
+[1m--- a/src/database/seeds/DatabaseSeeder.php[m
+[1m+++ b/src/database/seeds/DatabaseSeeder.php[m
+[36m@@ -11,6 +11,6 @@[m [mclass DatabaseSeeder extends Seeder[m
+      */[m
+     public function run()[m
+     {[m
+[31m-        // $this->call(UsersTableSeeder::class);[m
+[32m+[m[32m        $this->call(TodosTableSeeder::class);[m
+     }[m
+ }[m
